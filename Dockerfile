@@ -2,7 +2,8 @@
 FROM python:3.10-slim
 
 RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
-    && apt-get update && apt-get install -y ca-certificates
+    && apt-get update && apt-get install -y ca-certificate
+RUN update-ca-certificates
 
 # Set the working directory in the container
 WORKDIR /app
