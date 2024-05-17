@@ -1,8 +1,8 @@
 # Use the official Python image from the Docker Hub
 FROM python:3.10-slim
 
-RUN apt-get update && apt-get install -y ca-certificates
-RUN update-ca-certificates
+RUN sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
+    && apt-get update && apt-get install -y ca-certificates
 
 # Set the working directory in the container
 WORKDIR /app
