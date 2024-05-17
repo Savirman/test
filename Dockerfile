@@ -1,7 +1,5 @@
 FROM ubuntu:latest
 
-RUN usermod -aG docker jenkins
-
 # Обновление списка пакетов и установка необходимых зависимостей
 RUN apt-get update && \
     apt-get install -y python3 python3-pip
