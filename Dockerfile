@@ -1,5 +1,5 @@
 # Use the official Python image from the Docker Hub
-FROM python:3.10-slim
+FROM python:3.10-slim-bullseye
 
 RUN echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list \
     && sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
