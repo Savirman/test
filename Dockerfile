@@ -1,11 +1,6 @@
 # Use the official Python image from the Docker Hub
 FROM python:3.10-slim-bullseye
 
-RUN echo "deb http://deb.debian.org/debian bullseye main" > /etc/apt/sources.list \
-    && sed -i 's/deb.debian.org/mirrors.aliyun.com/g' /etc/apt/sources.list \
-    && apt-get update && apt-get install -y ca-certificates
-RUN update-ca-certificates
-
 # Set the working directory in the container
 WORKDIR /app
 
@@ -13,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --user --no-cache-dir -r requirements.txt
 
 # Copy the rest of the application code into the container
 COPY app.py .
