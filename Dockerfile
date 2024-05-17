@@ -8,7 +8,7 @@ WORKDIR /app
 COPY requirements.txt .
 
 # Install the dependencies
-RUN pip install flask
+RUN pip3 install flask
 
 # Copy the rest of the application code into the container
 COPY app.py .
